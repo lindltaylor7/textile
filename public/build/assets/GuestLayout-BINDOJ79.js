@@ -1,0 +1,1 @@
+import{o as t,g as s,d as o,r}from"./app-C4_NriWn.js";const a={class:"flex min-h-screen items-center justify-center bg-gradient-to-br from-teal-400 via-cyan-400 to-blue-500 p-6"},n={class:"w-full max-w-5xl overflow-hidden bg-white shadow-2xl rounded-[2.5rem]"},i={__name:"GuestLayout",setup(c){return(e,l)=>(t(),s("div",a,[o("div",n,[r(e.$slots,"default")])]))}};export{i as _};
