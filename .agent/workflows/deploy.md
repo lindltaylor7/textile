@@ -29,6 +29,12 @@ Genera los archivos optimizados para producción:
 // turbo
 npm run build
 ```
+**Importante (Git):** Si despliegas vía Git, asegúrate de que la carpeta de compilación se suba:
+```bash
+git add public/build -f
+git commit -m "Compilación para producción"
+git push
+```
 
 ### 4. Optimización de Laravel
 Ejecuta estos comandos para cachear la configuración y rutas, lo que mejora significativamente el rendimiento:
