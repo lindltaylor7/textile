@@ -1,11 +1,11 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    # Si la petición no es un archivo o directorio real
+    # Prioridad: archivos físicos en public/
+    RewriteCond %{DOCUMENT_ROOT}/textile/public/$1 -f
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Todo lo demás al puente index.php de la raíz
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    # Redirigir la raíz del subdirectorio
-    RewriteRule ^$ public/index.php [L]
-    # Redirigir el resto manteniendo el path
-    RewriteCond %{REQUEST_URI} !^/public/
-    RewriteRule ^(.*)$ public/$1 [L]
+    RewriteRule ^(.*)$ index.php [L]
 </IfModule>
