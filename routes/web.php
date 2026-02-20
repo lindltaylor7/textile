@@ -11,6 +11,10 @@ Route::get('/', function () {
     return Inertia::render('Auth/Login');
 });
 
+Route::get('/debug-test', function () {
+    return "¡Laravel está funcionando en Hostinger!";
+});
+
 use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\CorteController;
