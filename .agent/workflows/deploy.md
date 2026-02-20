@@ -63,3 +63,20 @@ Si usas archivos públicos:
 // turbo
 php artisan storage:link
 ```
+
+### 8. Despliegue en Hostinger (Shared Hosting)
+Si estás desplegando en Hostinger y tienes tus archivos en la carpeta `public_html`, es muy probable que te salga un error 404 porque Laravel espera que la raíz sea la carpeta `public`.
+
+**Solución 1: Archivo .htaccess en la raíz**
+He creado un archivo `.htaccess` en la raíz del proyecto con el siguiente contenido. Asegúrate de que esté subido a tu servidor en la carpeta principal (donde están `app`, `config`, etc.):
+```apache
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+```
+
+**Solución 2: Mover el contenido de `public`**
+Si prefieres no usar el redireccionamiento:
+1. Mueve todo el contenido de la carpeta `public/` (incluyendo el archivo `build`) directamente a `public_html/`.
+2. Edita `index.php` (ahora en `public_html/`) y ajusta las rutas de `vendor/autoload.php` y `storage/bootstrap/app.php` para que apunten correctamente (usualmente quitando un `..`).
